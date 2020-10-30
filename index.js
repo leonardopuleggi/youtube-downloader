@@ -81,12 +81,17 @@ async function sendEmail(videoName) {
 }
 
 async function main() {
-    downloadVideo().then(async (videoName) => {
-        await uploadToFTP(videoName);
-        await sendEmail(videoName);
-        fs.unlinkSync(videoName);
-        process.exit(0);
-    });
+    try {
+        downloadVideo().then(async (videoName) => {
+            await uploadToFTP(videoName);
+            await sendEmail(videoName);
+            fs.unlinkSync(videoName);
+            process.exit(0);
+        });
+    }
+    catch(err) {
+        console.log(err);
+    }
 }
 
 main().catch(console.log);
