@@ -29,6 +29,8 @@ function downloadVideo() {
         setTimeout( () => { 
             console.log(`After ${process.env.LENGTH} min, let's stop`);
             writeStream.end(); 
+            const {size} = fs.statSync(videoName);
+            console.log(`Size ${size}`);
         }, process.env.LENGTH * 1000 * 60);
     });
 
