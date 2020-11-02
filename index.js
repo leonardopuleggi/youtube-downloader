@@ -64,7 +64,7 @@ async function uploadToFTP(videoName) {
 async function sendEmail(videoName) {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: 'AOL',
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASSWORD
